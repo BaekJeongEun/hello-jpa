@@ -84,13 +84,20 @@ public class JpaMain {
 //            em.remove(member);
 
             // 영속
-            Member member = em.find(Member.class, 100L);
-            member.setName("AAAAA");
+//            Member member = em.find(Member.class, 100L);
+//            member.setName("AAAAA");
 
             // em.detach(member); // 영속성 컨텍스트에서 더 이상 관리하지 못 하게 끄집어 냄
-            em.clear(); // 영속성 컨텍스트를 통째로 지워버림
-            Member member1 = em.find(Member.class, 100L); // clear()로 1차 캐시 내용을 지워버렸기 때문에 select문 실행해서 데이터 가져옴
-            System.out.println("===============");
+//            em.clear(); // 영속성 컨텍스트를 통째로 지워버림
+//            Member member1 = em.find(Member.class, 100L); // clear()로 1차 캐시 내용을 지워버렸기 때문에 select문 실행해서 데이터 가져옴
+//            System.out.println("===============");
+
+            Member member = new Member();
+            //member.setId(3L);
+            member.setName("C");
+            //member.setRoleType(RoleType.ADMIN);
+
+            em.persist(member);
 
             tx.commit(); // DB에 반영하자. 이거 안 쓰면 Connection leak detected 에러남.
         } catch (Exception e){
