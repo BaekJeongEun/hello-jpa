@@ -92,12 +92,50 @@ public class JpaMain {
 //            Member member1 = em.find(Member.class, 100L); // clear()로 1차 캐시 내용을 지워버렸기 때문에 select문 실행해서 데이터 가져옴
 //            System.out.println("===============");
 
-            Member member = new Member();
-            //member.setId(3L);
-            member.setName("C");
-            //member.setRoleType(RoleType.ADMIN);
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
+            Member member = new Member();
+            member.setName("member1");
+            member.changeTeam(team); // setTeam()을 changeTeam()으로 변경함으로써 getter/setter 관례에 의한 것이 아니라 중요한 일을 하는 것을 강조
             em.persist(member);
+
+            // 양방향 매핑시 가장 많이 하는 실수 (연관관계의 주인에 값을 입력하지 않음)
+//            Member member2 = new Member();
+//            member2.setName("member2");
+//
+//            // 역방향(주인이 아닌 방향)만 연관관계 설정
+//           team.getMembers().add(member2); // Member 테이블의 team_id에는 null 들어감
+//            em.persist(member2);
+
+            em.flush();
+            em.clear();
+
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
+
+            for(Member m : members){
+                System.out.println("m = "+m.getName());
+            }
+
+//            Member findMember = em.find(Member.class, member.getId());
+
+            // 단방향 연관관계
+//            Team findTeam = findMember.getTeam();
+//            System.out.println("findTeam = " + findTeam.getName());
+//
+//            Team newTeam = em.find(Team.class, 100L);
+//            findMember.setTeam(newTeam); // 팀 정보 수정
+
+
+            // @양방향 연관관계의 주인
+//            List<Member> members = findMember.getTeam().getMembers();
+//
+//            for(Member m : members){
+//                System.out.println("m = "+m.getName());
+//            }
+
 
             tx.commit(); // DB에 반영하자. 이거 안 쓰면 Connection leak detected 에러남.
         } catch (Exception e){

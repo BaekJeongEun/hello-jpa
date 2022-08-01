@@ -15,38 +15,55 @@ import java.util.Date;
         pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
 public class Member {
 
-    @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq_generator")
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")
-
+    @Id @GeneratedValue // (strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")
+    @Column(name = "MEMBER_ID")
     private Long id;
 
     // @Column(unique = true, length = 10) // unique 제약조건
-    @Column(name = "name")// 테이블 칼럼명
+    @Column(name = "USERNAME")// 테이블 칼럼명
     private String username;
-    private Long age;
-    @Enumerated(EnumType.STRING) // enum 이름을 데이터베이스에 저장
-    //@Enumerated(EnumType.ORDINAL) // enum 순서를 데이터베이스에 저장 (default ORDINAL)
-    private RoleType roleType;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
 
-    private LocalDate testLocalDate;
-    private LocalDateTime testLocalDateTime;
+    private int age;
 
-    @Lob // varchar를 넘어서는 큰 컨텐츠
-    private String description;
+    @ManyToOne // 다대일 Member: N , Team: 1
+    @JoinColumn(name = "TEAM_ID") // join할 컬럼명
+    private Team team;
 
-    public Member(){
+    public Team getTeam() {
+        return team;
     }
 
-    public Member(Long id, String name) {
-        this.id = id;
-        this.username = name;
+//    public void setTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this);
+//    }
+    public void changeTeam(Team team) {
+       this.team = team;
+       team.getMembers().add(this);
     }
 
+    //    @Enumerated(EnumType.STRING) // enum 이름을 데이터베이스에 저장
+//    //@Enumerated(EnumType.ORDINAL) // enum 순서를 데이터베이스에 저장 (default ORDINAL)
+//    private RoleType roleType;
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdDate;
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date lastModifiedDate;
+//
+//    private LocalDate testLocalDate;
+//    private LocalDateTime testLocalDateTime;
+//
+//    @Lob // varchar를 넘어서는 큰 컨텐츠
+//    private String description;
+//
+//    public Member(){
+//    }
+//
+//    public Member(Long id, String name) {
+//        this.id = id;
+//        this.username = name;
+//    }
+//
     public Long getId() {
         return id;
     }
@@ -62,12 +79,12 @@ public class Member {
     public void setName(String name) {
         this.username = name;
     }
-
-    public RoleType getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(RoleType roleType) {
-        this.roleType = roleType;
-    }
+//
+//    public RoleType getRoleType() {
+//        return roleType;
+//    }
+//
+//    public void setRoleType(RoleType roleType) {
+//        this.roleType = roleType;
+//    }
 }
