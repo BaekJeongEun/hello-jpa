@@ -3,7 +3,9 @@ package hellojpa;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity // JPA가 관리하는 객체이고, 데이터베이스 테이블과 매핑해서 사용할 것이구나!
 // @Table(name = "MBR") // 매필할 테이블 이름
@@ -32,6 +34,17 @@ public class Member {
     public Team getTeam() {
         return team;
     }
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
+    @ManyToMany
+    @JoinTable(name = "MEMBER_PRODUCT")
+    private List<Product> products = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
 //    public void setTeam(Team team) {
 //        this.team = team;
@@ -72,11 +85,11 @@ public class Member {
         this.id = id;
     }
 
-    public String getName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setName(String name) {
+    public void setUsername(String name) {
         this.username = name;
     }
 //

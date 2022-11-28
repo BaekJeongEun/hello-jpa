@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd79a3a2-1d66-48bd-8099-3dd4c9f89ed2" name="Changes" comment="docs: 엔티티 매핑">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Team.java" afterDir="false" />
+    <list default="true" id="dd79a3a2-1d66-48bd-8099-3dd4c9f89ed2" name="Changes" comment="docs: 단방향, 양방향 연관관계 매핑">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Locker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/MemberProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
@@ -51,17 +53,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/2022study/springframework/JPA1/hello-jpa",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="hellojpa" />
@@ -103,6 +106,11 @@
       <workItem from="1658928564693" duration="1230000" />
       <workItem from="1658935338259" duration="3603000" />
       <workItem from="1659363464651" duration="3552000" />
+      <workItem from="1659367673374" duration="79000" />
+      <workItem from="1659802878268" duration="502000" />
+      <workItem from="1659883169472" duration="1666000" />
+      <workItem from="1659936025184" duration="629000" />
+      <workItem from="1669605879019" duration="6156000" />
     </task>
     <task id="LOCAL-00001" summary="docs: 영속성, 플러시, 준영속성 추가">
       <created>1658154411086</created>
@@ -125,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658761194325</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="docs: 단방향, 양방향 연관관계 매핑">
+      <created>1659367715367</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659367715367</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +160,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs: 영속성, 플러시, 준영속성 추가" />
     <MESSAGE value="docs: 엔티티 매핑" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 엔티티 매핑" />
+    <MESSAGE value="docs: 단방향, 양방향 연관관계 매핑" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 단방향, 양방향 연관관계 매핑" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -97,7 +97,7 @@ public class JpaMain {
             em.persist(team);
 
             Member member = new Member();
-            member.setName("member1");
+            member.setUsername("member1");
             member.changeTeam(team); // setTeam()을 changeTeam()으로 변경함으로써 getter/setter 관례에 의한 것이 아니라 중요한 일을 하는 것을 강조
             em.persist(member);
 
@@ -116,7 +116,7 @@ public class JpaMain {
             List<Member> members = findTeam.getMembers();
 
             for(Member m : members){
-                System.out.println("m = "+m.getName());
+                System.out.println("m = "+m.getUsername());
             }
 
 //            Member findMember = em.find(Member.class, member.getId());
