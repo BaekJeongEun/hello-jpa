@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd79a3a2-1d66-48bd-8099-3dd4c9f89ed2" name="Changes" comment="docs: 단방향, 양방향 연관관계 매핑">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Locker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/MemberProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Product.java" afterDir="false" />
+    <list default="true" id="dd79a3a2-1d66-48bd-8099-3dd4c9f89ed2" name="Changes" comment="add: Mapped Superclass 매핑 정보 상속">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Team.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +56,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/2022study/springframework/JPA1/hello-jpa",
+    "last_opened_file_path": "D:/2022study/springframework/JPA1/hello-jpa/src/main/java/hellojpa",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -68,6 +66,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="hellojpa" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\2022study\springframework\JPA1\hello-jpa\src\main\java\hellojpa" />
     </key>
   </component>
   <component name="RunManager">
@@ -110,7 +111,12 @@
       <workItem from="1659802878268" duration="502000" />
       <workItem from="1659883169472" duration="1666000" />
       <workItem from="1659936025184" duration="629000" />
-      <workItem from="1669605879019" duration="6156000" />
+      <workItem from="1669605879019" duration="6932000" />
+      <workItem from="1672326657375" duration="105000" />
+      <workItem from="1672747250139" duration="20000" />
+      <workItem from="1672747665423" duration="70000" />
+      <workItem from="1672747763563" duration="60000" />
+      <workItem from="1672748981265" duration="4236000" />
     </task>
     <task id="LOCAL-00001" summary="docs: 영속성, 플러시, 준영속성 추가">
       <created>1658154411086</created>
@@ -140,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659367715367</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="docs: 다대일, 일대다, 일대일, 다대다 연관관계 매핑">
+      <created>1669615683994</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669615683994</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +174,8 @@
     <MESSAGE value="docs: 영속성, 플러시, 준영속성 추가" />
     <MESSAGE value="docs: 엔티티 매핑" />
     <MESSAGE value="docs: 단방향, 양방향 연관관계 매핑" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 단방향, 양방향 연관관계 매핑" />
+    <MESSAGE value="docs: 다대일, 일대다, 일대일, 다대다 연관관계 매핑" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 다대일, 일대다, 일대일, 다대다 연관관계 매핑" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

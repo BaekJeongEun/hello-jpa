@@ -15,7 +15,7 @@ import java.util.List;
         name = "MEMBER_SEQ_GENERATOR",
         table = "MY_SEQUENCES",
         pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
-public class Member {
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue // (strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")
     @Column(name = "MEMBER_ID")

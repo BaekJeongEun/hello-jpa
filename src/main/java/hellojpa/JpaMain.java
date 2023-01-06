@@ -1,9 +1,15 @@
 package hellojpa;
 
+import org.hibernate.Criteria;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -92,14 +98,14 @@ public class JpaMain {
 //            Member member1 = em.find(Member.class, 100L); // clear()로 1차 캐시 내용을 지워버렸기 때문에 select문 실행해서 데이터 가져옴
 //            System.out.println("===============");
 
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
-
-            Member member = new Member();
-            member.setUsername("member1");
-            member.changeTeam(team); // setTeam()을 changeTeam()으로 변경함으로써 getter/setter 관례에 의한 것이 아니라 중요한 일을 하는 것을 강조
-            em.persist(member);
+//            Team team = new Team();
+//            team.setName("TeamA");
+//            em.persist(team);
+//
+//            Member member = new Member();
+//            member.setUsername("member1");
+//            member.changeTeam(team); // setTeam()을 changeTeam()으로 변경함으로써 getter/setter 관례에 의한 것이 아니라 중요한 일을 하는 것을 강조
+//            em.persist(member);
 
             // 양방향 매핑시 가장 많이 하는 실수 (연관관계의 주인에 값을 입력하지 않음)
 //            Member member2 = new Member();
@@ -109,15 +115,15 @@ public class JpaMain {
 //           team.getMembers().add(member2); // Member 테이블의 team_id에는 null 들어감
 //            em.persist(member2);
 
-            em.flush();
-            em.clear();
-
-            Team findTeam = em.find(Team.class, team.getId());
-            List<Member> members = findTeam.getMembers();
-
-            for(Member m : members){
-                System.out.println("m = "+m.getUsername());
-            }
+//            em.flush();
+//            em.clear();
+//
+//            Team findTeam = em.find(Team.class, team.getId());
+//            List<Member> members = findTeam.getMembers();
+//
+//            for(Member m : members){
+//                System.out.println("m = "+m.getUsername());
+//            }
 
 //            Member findMember = em.find(Member.class, member.getId());
 
@@ -129,13 +135,26 @@ public class JpaMain {
 //            findMember.setTeam(newTeam); // 팀 정보 수정
 
 
-            // @양방향 연관관계의 주인
+            // 양방향 연관관계의 주인
 //            List<Member> members = findMember.getTeam().getMembers();
 //
 //            for(Member m : members){
 //                System.out.println("m = "+m.getName());
 //            }
 
+            // JPQL
+            List<Member> result = em.createQuery(
+                    "select  m from Member as m where m.username like '%kim%'"
+                    , Member.class
+            ).getResultList();
+
+            // Criteria 사용 준비
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Member> query = cb.createQuery(Member.class);
+            // 쿼리 생성
+            Root<Member> m = query.from(Member.class);
+            CriteriaQuery<Member> cq = query.select(m).where(cb.equal(m.get("username"), "kim"));
+            em.createQuery(cq);
 
             tx.commit(); // DB에 반영하자. 이거 안 쓰면 Connection leak detected 에러남.
         } catch (Exception e){
